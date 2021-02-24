@@ -10,10 +10,20 @@
   apt:
     name='build-essential,zlib1g-dev,libssl-dev,libreadline-dev,libyaml-dev,libcurl4-openssl-dev,libffi-dev'
 
+- name:  Pip3のインストール
+  become: yes
+  apt:
+    name='python3-pip'
+
+- name:  psycopg2のインストール
+  become: yes
+  pip:
+    name='psycopg2'
+
 - name:  PostgreSQLとヘッダファイルのインストール
   become: yes
   apt:
-    name='postgresql,postgresql-server-dev-10,python-psycopg2'
+    name='postgresql,postgresql-server-dev-all'
 
 - name: create locale ja_JP.UTF-8
   become: yes
